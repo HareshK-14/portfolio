@@ -1482,3 +1482,9 @@ body.light-theme .resume-modal {
     display: none !important;
   }
 }
+
+.cert-item-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
