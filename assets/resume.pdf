@@ -17,10 +17,15 @@ Internship:
 Projects:
 - Smart Healthcare Monitoring System
   GitHub: github.com/HareshK-14/SMART-PETCARE
+  Deployment: smart-petcare-web.vercel.app
 - LocalLink - Hyperlocal E-Commerce Platform
   GitHub: github.com/HareshK-14/HYPERLOCAL-MARKETPLACE
+  Deployment: hyperlocal-marketplace-six.vercel.app
+- NEROX-AI - Advanced AI Assistant
+  GitHub: github.com/HareshK-14/NEROX-AI
+  Deployment: nerox-ai-qsi9.vercel.app
 
 Skills:
-- Java, Python, HTML, CSS, JavaScript, SQL, Spring Boot, React, Git, Postman, AWS, AI Tools
+- Java, Python, HTML, CSS, JavaScript, SQL, Spring Boot, React, Next.js, TypeScript, Git, Postman, AWS, AI Tools
 
 (This is a placeholder resume document. Please replace this file with your actual resume PDF.)
