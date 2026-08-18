@@ -553,17 +553,20 @@
 
           <div class="glass-card reveal delay-200">
             <form class="contact-form" id="contact-form">
+              <!-- Add your Web3Forms Access Key here (Get it for free at https://web3forms.com/) -->
+              <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
               <div class="form-group">
                 <label for="form-name" class="form-label">Full Name</label>
-                <input type="text" id="form-name" class="form-input" placeholder="Your Name" required>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="Your Name" required>
               </div>
               <div class="form-group">
                 <label for="form-email" class="form-label">Email Address</label>
-                <input type="email" id="form-email" class="form-input" placeholder="your.email@example.com" required>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="your.email@example.com" required>
               </div>
               <div class="form-group">
                 <label for="form-message" class="form-label">Message</label>
-                <textarea id="form-message" class="form-input" placeholder="Write your message here..." required></textarea>
+                <textarea id="form-message" name="message" class="form-input" placeholder="Write your message here..." required></textarea>
               </div>
               <div class="form-status" id="form-status"></div>
               <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>

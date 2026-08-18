@@ -1138,6 +1138,13 @@ textarea.form-input {
   color: #10b981;
 }
 
+.form-status.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
 /* Footer */
 footer {
   padding: 4rem 0;

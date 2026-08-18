@@ -168,24 +168,47 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      // Simulate form submission
-      const name = document.getElementById('form-name').value;
-      const email = document.getElementById('form-email').value;
-      const message = document.getElementById('form-message').value;
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
 
-      if (name && email && message) {
-        formStatus.classList.add('success');
-        formStatus.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
-        
-        // Reset form
-        contactForm.reset();
+      const formData = new FormData(contactForm);
 
-        // Clear message after 5 seconds
-        setTimeout(() => {
-          formStatus.textContent = '';
+      // Fetch request to Web3Forms API
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          formStatus.classList.remove('error');
+          formStatus.classList.add('success');
+          formStatus.textContent = "Thank you! Your message has been sent successfully.";
+          contactForm.reset();
+        } else {
+          console.log(response);
           formStatus.classList.remove('success');
+          formStatus.classList.add('error');
+          formStatus.textContent = json.message || "Something went wrong. Please try again.";
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        formStatus.classList.remove('success');
+        formStatus.classList.add('error');
+        formStatus.textContent = "Unable to connect. Please check your network.";
+      })
+      .then(() => {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        formStatus.style.display = 'block';
+        setTimeout(() => {
+          formStatus.style.display = 'none';
+          formStatus.classList.remove('success', 'error');
         }, 5000);
-      }
+      });
     });
   }
 });
